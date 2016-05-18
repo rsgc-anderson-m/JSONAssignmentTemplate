@@ -1,7 +1,12 @@
-//: Playground - noun: a place where people can play
+//
+//  ViewController.swift
+//  HeatAlertApp
+//
+//  Created by Student on 2016-05-18.
+//  Copyright © 2016 Student. All rights reserved.
+//
 
 import UIKit
-import XCPlayground
 
 class ViewController : UIViewController {
     
@@ -23,35 +28,37 @@ class ViewController : UIViewController {
             // iterate over all the objects
             for heatAlert in heatAlerts {
                 
-                print("hi")
-                
                 // Cast it to a dictionary with a string key
-                if let heatAlertDetails = heatAlert as? [String : String] {
+                if let heatAlertDetails = heatAlerts as? [String : String] {
                     
-//                    print("======")
-//                    print("the date is \(heatAlertDetails["date"])")
-//                    print("the date is \(heatAlertDetails["text"])")
-//                    print("======")
+                    print("======")
+                    print("the date is \(heatAlertDetails["date"])")
+                    print("======")
                     
-                    guard let date : String = heatAlertDetails["date"]! as String,
-                    let text : String = heatAlertDetails["text"]! as String
-                    
-                        else{
-                            print("Error")
-                            return
-                    }
-                    
-                    print("the date is \(date)")
-                    print("the alert is from \(text)")
+                    // Cast it to a dictionary with a string key
+                    if let heatAlertsFrom = heatAlerts as? [String : String] {
+                        
+                        print("======")
+                        print("the heat alert is from \(heatAlertsFrom["text"])")
+                        print("======")
+                        
                     }
                 }
+            }
             
+            
+            //            // Now we can update the UI
+            //            // (must be done asynchronously)
+            //            dispatch_async(dispatch_get_main_queue()) {
+            //                self.jsonResult.text = "parsed JSON should go here"
+            //            }
             
         } catch let error as NSError {
             print ("Failed to load: \(error.localizedDescription)")
         } catch {
             print("something else bad happened")
         }
+        
         
     }
     
@@ -198,7 +205,3 @@ class ViewController : UIViewController {
     
 }
 
-// Embed the view controller in the live view for the current playground page
-XCPlaygroundPage.currentPage.liveView = ViewController()
-// This playground page needs to continue executing until stopped, since network reqeusts are asynchronous
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
