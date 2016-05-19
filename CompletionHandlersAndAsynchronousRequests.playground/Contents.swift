@@ -14,38 +14,31 @@ class ViewController : UIViewController {
         // De-serializing JSON can throw errors, so should be inside a do-catch structure
         do {
             
-            // Do the initial de-serialization
             // Source JSON is here:
             // http://app.toronto.ca/opendata/heat_alerts/heat_alerts_list.json
             //
             let heatAlerts = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! [AnyObject]
             
-            // iterate over all the objects
+            // Iterate over all the objects
             for heatAlert in heatAlerts {
-                
-                print("hi")
                 
                 // Cast it to a dictionary with a string key
                 if let heatAlertDetails = heatAlert as? [String : String] {
                     
-//                    print("======")
-//                    print("the date is \(heatAlertDetails["date"])")
-//                    print("the date is \(heatAlertDetails["text"])")
-//                    print("======")
-                    
                     guard let date : String = heatAlertDetails["date"]! as String,
-                    let text : String = heatAlertDetails["text"]! as String
-                    
+                        let text : String = heatAlertDetails["text"]! as String
+                        
                         else{
                             print("Error")
                             return
                     }
                     
-                    print("the date is \(date)")
-                    print("the alert is from \(text)")
-                    }
+                    print("==========")
+                    print("Date: \(date)")
+                    print("\(text)")
                 }
-            
+                
+            }
             
         } catch let error as NSError {
             print ("Failed to load: \(error.localizedDescription)")
@@ -58,19 +51,10 @@ class ViewController : UIViewController {
     // Set up and begin an asynchronous request for JSON data
     func getMyJSON() {
         
-        // Define a completion handler
-        // The completion handler is what gets called when this **asynchronous** network request is completed.
         // This is where we'd process the JSON retrieved
         let myCompletionHandler : (NSData?, NSURLResponse?, NSError?) -> Void = {
             
             (data, response, error) in
-            
-            // This is the code run when the network request completes
-            // When the request completes:
-            //
-            // data - contains the data from the request
-            // response - contains the HTTP response code(s)
-            // error - contains any error messages, if applicable
             
             // Cast the NSURLResponse object into an NSHTTPURLResponse objecct
             if let r = response as? NSHTTPURLResponse {
