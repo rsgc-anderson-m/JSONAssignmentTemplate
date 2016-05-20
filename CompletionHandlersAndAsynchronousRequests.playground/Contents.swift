@@ -114,24 +114,74 @@ class ViewController : UIViewController {
         super.viewDidLoad()
         
         // Make the view's background be gray
-        view.backgroundColor = UIColor.lightGrayColor()
+        view.backgroundColor = UIColor.redColor()
         
         /*
-         * Further define label that will show JSON data
+         * Create and position the label
          */
+        let title = UILabel()
         
         // Set the label text and appearance
-        jsonResult.text = "..."
-        jsonResult.font = UIFont.systemFontOfSize(12)
-        jsonResult.numberOfLines = 0   // makes number of lines dynamic
-        // e.g.: multiple lines will show up
-        jsonResult.textAlignment = NSTextAlignment.Center
+        title.text = "Heat Alert History"
+        title.font = UIFont.boldSystemFontOfSize(36)
         
         // Required to autolayout this label
-        jsonResult.translatesAutoresizingMaskIntoConstraints = false
+        title.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the label to the superview
-        view.addSubview(jsonResult)
+        view.addSubview(title)
+        
+        /*
+         * Create and position the label
+         */
+        let date = UILabel()
+        
+        // Set the label text and appearance
+        date.text = "Date"
+        date.font = UIFont.boldSystemFontOfSize(20)
+        
+        // Required to autolayout this label
+        date.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(date)
+
+        
+        /*
+         * Create label for the amount field
+         */
+        let dateLabel = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+        
+        // Set the label text and appearance
+        dateLabel.borderStyle = UITextBorderStyle.RoundedRect
+        dateLabel.font = UIFont.systemFontOfSize(15)
+        dateLabel.placeholder = "YYYY-MM-DD"
+        dateLabel.backgroundColor = UIColor.whiteColor()
+        dateLabel.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        
+        // Required to autolayout this field
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the amount albel into the superview
+        view.addSubview(dateLabel)
+
+        
+//        /*
+//         * Further define label that will show JSON data
+//         */
+//        
+//        // Set the label text and appearance
+//        jsonResult.text = "..."
+//        jsonResult.font = UIFont.systemFontOfSize(12)
+//        jsonResult.numberOfLines = 0   // makes number of lines dynamic
+//        // e.g.: multiple lines will show up
+//        jsonResult.textAlignment = NSTextAlignment.Center
+//        
+//        // Required to autolayout this label
+//        jsonResult.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        // Add the label to the superview
+//        view.addSubview(jsonResult)
         
         /*
          * Add a button
@@ -161,13 +211,12 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = [
-            "title": jsonResult,
+        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateLabel,
             "getData": getData]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-50-[getData]-[title]",
+            "V:|[title]-50-[date][inputField]-50-[getData]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
