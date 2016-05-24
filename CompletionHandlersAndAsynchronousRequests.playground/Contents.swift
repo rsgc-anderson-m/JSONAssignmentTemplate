@@ -67,7 +67,6 @@ class ViewController : UIViewController {
         }
         
         dispatch_async(dispatch_get_main_queue()) {
-            print("Updated")
             self.heatLabel.text = heatMoney
         }
         
@@ -179,7 +178,7 @@ class ViewController : UIViewController {
         
         // Set the label text and appearance
         heatLabel.text = "Heat Alert"
-        heatLabel.font = UIFont.boldSystemFontOfSize(15)
+        heatLabel.font = UIFont.boldSystemFontOfSize(11)
         // Required to autolayout this label
         heatLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -193,7 +192,7 @@ class ViewController : UIViewController {
         
         // Set the label text and appearance
         dateGiven.borderStyle = UITextBorderStyle.RoundedRect
-        dateGiven.font = UIFont.systemFontOfSize(12)
+        dateGiven.font = UIFont.systemFontOfSize(15)
         dateGiven.placeholder = "YYYY-MM-DD"
         dateGiven.backgroundColor = UIColor.whiteColor()
         dateGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
@@ -238,7 +237,7 @@ class ViewController : UIViewController {
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[title]-40-[date][inputField]-20-[heat]-50-[getData]",
+            "V:|[title]-50-[date][inputField]-20-[getData]-10-[heat]",
             options: [],
             metrics: nil,
             views: viewsDictionary)

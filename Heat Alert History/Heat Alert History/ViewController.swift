@@ -1,22 +1,19 @@
-//
-//  ViewController.swift
-//  Heat Alert History
-//
-//  Created by Student on 2016-05-23.
-//  Copyright © 2016 Student. All rights reserved.
-//
+//: Playground - noun: a place where people can play
 
 import UIKit
 
 class ViewController : UIViewController {
     
-    let dateLabel = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+    let dateGiven = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+    let heatLabel = UILabel()
     
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
     
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
+        
+        var heatMoney : String = ""
         
         // De-serializing JSON can throw errors, so should be inside a do-catch structure
         do {
@@ -25,6 +22,15 @@ class ViewController : UIViewController {
             // http://app.toronto.ca/opendata/heat_alerts/heat_alerts_list.json
             //
             let heatAlerts = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! [AnyObject]
+            
+            guard let dateProvided : String = dateGiven.text else {
+                print("No date given")
+                return
+            }
+            
+            print("The date given is: \(dateProvided)")
+            
+            heatMoney = "No Heat Alert"
             
             // Iterate over all the objects
             for heatAlert in heatAlerts {
@@ -43,7 +49,14 @@ class ViewController : UIViewController {
                     print("==========")
                     print("Date: \(date)")
                     print("\(text)")
+                    
+                    if let dateProvided = dateGiven.text {
+                        if dateProvided==date {
+                            heatMoney = text
+                        }
+                    }
                 }
+                
             }
             
         } catch let error as NSError {
@@ -51,10 +64,16 @@ class ViewController : UIViewController {
         } catch {
             print("something else bad happened")
         }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.heatLabel.text = heatMoney
+        }
+        
     }
     
     // Set up and begin an asynchronous request for JSON data
     func getMyJSON() {
+        
         
         // This is where we'd process the JSON retrieved
         let myCompletionHandler : (NSData?, NSURLResponse?, NSError?) -> Void = {
@@ -122,7 +141,7 @@ class ViewController : UIViewController {
         view.backgroundColor = UIColor.redColor()
         
         /*
-         * Create and position the title
+         * Create and position the label
          */
         let title = UILabel()
         
@@ -137,7 +156,7 @@ class ViewController : UIViewController {
         view.addSubview(title)
         
         /*
-         * Create and position the date label
+         * Create and position the label
          */
         let date = UILabel()
         
@@ -151,23 +170,37 @@ class ViewController : UIViewController {
         // Add the label to the superview
         view.addSubview(date)
         
+        /*
+         * Create and position the label
+         */
+        
+        
+        // Set the label text and appearance
+        heatLabel.text = "Heat Alert"
+        heatLabel.font = UIFont.boldSystemFontOfSize(11)
+        // Required to autolayout this label
+        heatLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(heatLabel)
+        
         
         /*
          * Create label for the amount field
          */
         
         // Set the label text and appearance
-        dateLabel.borderStyle = UITextBorderStyle.RoundedRect
-        dateLabel.font = UIFont.systemFontOfSize(15)
-        dateLabel.placeholder = "YYYY-MM-DD"
-        dateLabel.backgroundColor = UIColor.whiteColor()
-        dateLabel.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        dateGiven.borderStyle = UITextBorderStyle.RoundedRect
+        dateGiven.font = UIFont.systemFontOfSize(15)
+        dateGiven.placeholder = "YYYY-MM-DD"
+        dateGiven.backgroundColor = UIColor.whiteColor()
+        dateGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         
         // Required to autolayout this field
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateGiven.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the amount albel into the superview
-        view.addSubview(dateLabel)
+        view.addSubview(dateGiven)
         
         
         /*
@@ -198,12 +231,12 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateLabel,
+        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven, "heat": heatLabel,
                                                       "getData": getData]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[title]-40-[date][inputField]-50-[getData]",
+            "V:|[title]-50-[date][inputField]-20-[getData]-10-[heat]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
