@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FAF30831CF3E9DB00CA2715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF30821CF3E9DB00CA2715 /* AppDelegate.swift */; };
+		3FAF30851CF3E9DB00CA2715 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF30841CF3E9DB00CA2715 /* ViewController.swift */; };
+		3FAF30881CF3E9DB00CA2715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF30861CF3E9DB00CA2715 /* Main.storyboard */; };
+		3FAF308A1CF3E9DB00CA2715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF30891CF3E9DB00CA2715 /* Assets.xcassets */; };
+		3FAF308D1CF3E9DB00CA2715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF308B1CF3E9DB00CA2715 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3FAF307F1CF3E9DA00CA2715 /* Heat Alert History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heat Alert History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FAF30821CF3E9DB00CA2715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FAF30841CF3E9DB00CA2715 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FAF30871CF3E9DB00CA2715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3FAF30891CF3E9DB00CA2715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FAF308C1CF3E9DB00CA2715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3FAF308E1CF3E9DB00CA2715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FAF307C1CF3E9DA00CA2715 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FAF30761CF3E9DA00CA2715 = {
+			isa = PBXGroup;
+			children = (
+				3FAF30811CF3E9DA00CA2715 /* Heat Alert History */,
+				3FAF30801CF3E9DA00CA2715 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FAF30801CF3E9DA00CA2715 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FAF307F1CF3E9DA00CA2715 /* Heat Alert History.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FAF30811CF3E9DA00CA2715 /* Heat Alert History */ = {
+			isa = PBXGroup;
+			children = (
+				3FAF30821CF3E9DB00CA2715 /* AppDelegate.swift */,
+				3FAF30841CF3E9DB00CA2715 /* ViewController.swift */,
+				3FAF30861CF3E9DB00CA2715 /* Main.storyboard */,
+				3FAF30891CF3E9DB00CA2715 /* Assets.xcassets */,
+				3FAF308B1CF3E9DB00CA2715 /* LaunchScreen.storyboard */,
+				3FAF308E1CF3E9DB00CA2715 /* Info.plist */,
+			);
+			path = "Heat Alert History";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FAF307E1CF3E9DA00CA2715 /* Heat Alert History */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FAF30911CF3E9DB00CA2715 /* Build configuration list for PBXNativeTarget "Heat Alert History" */;
+			buildPhases = (
+				3FAF307B1CF3E9DA00CA2715 /* Sources */,
+				3FAF307C1CF3E9DA00CA2715 /* Frameworks */,
+				3FAF307D1CF3E9DA00CA2715 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Heat Alert History";
+			productName = "Heat Alert History";
+			productReference = 3FAF307F1CF3E9DA00CA2715 /* Heat Alert History.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FAF30771CF3E9DA00CA2715 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Student;
+				TargetAttributes = {
+					3FAF307E1CF3E9DA00CA2715 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 3FAF307A1CF3E9DA00CA2715 /* Build configuration list for PBXProject "Heat Alert History" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FAF30761CF3E9DA00CA2715;
+			productRefGroup = 3FAF30801CF3E9DA00CA2715 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FAF307E1CF3E9DA00CA2715 /* Heat Alert History */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FAF307D1CF3E9DA00CA2715 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FAF308D1CF3E9DB00CA2715 /* LaunchScreen.storyboard in Resources */,
+				3FAF308A1CF3E9DB00CA2715 /* Assets.xcassets in Resources */,
+				3FAF30881CF3E9DB00CA2715 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FAF307B1CF3E9DA00CA2715 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FAF30851CF3E9DB00CA2715 /* ViewController.swift in Sources */,
+				3FAF30831CF3E9DB00CA2715 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3FAF30861CF3E9DB00CA2715 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FAF30871CF3E9DB00CA2715 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3FAF308B1CF3E9DB00CA2715 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FAF308C1CF3E9DB00CA2715 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FAF308F1CF3E9DB00CA2715 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FAF30901CF3E9DB00CA2715 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FAF30921CF3E9DB00CA2715 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Heat Alert History/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RSGC.Heat-Alert-History";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3FAF30931CF3E9DB00CA2715 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Heat Alert History/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RSGC.Heat-Alert-History";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FAF307A1CF3E9DA00CA2715 /* Build configuration list for PBXProject "Heat Alert History" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FAF308F1CF3E9DB00CA2715 /* Debug */,
+				3FAF30901CF3E9DB00CA2715 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FAF30911CF3E9DB00CA2715 /* Build configuration list for PBXNativeTarget "Heat Alert History" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FAF30921CF3E9DB00CA2715 /* Debug */,
+				3FAF30931CF3E9DB00CA2715 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FAF30771CF3E9DA00CA2715 /* Project object */;
+}

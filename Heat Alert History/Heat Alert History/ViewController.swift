@@ -1,7 +1,12 @@
-//: Playground - noun: a place where people can play
+//
+//  ViewController.swift
+//  Heat Alert History
+//
+//  Created by Student on 2016-05-23.
+//  Copyright © 2016 Student. All rights reserved.
+//
 
 import UIKit
-import XCPlayground
 
 class ViewController : UIViewController {
     
@@ -147,7 +152,7 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(date)
-
+        
         
         /*
          * Create label for the amount field
@@ -165,24 +170,24 @@ class ViewController : UIViewController {
         
         // Add the amount albel into the superview
         view.addSubview(dateLabel)
-
         
-//        /*
-//         * Further define label that will show JSON data
-//         */
-//        
-//        // Set the label text and appearance
-//        jsonResult.text = "..."
-//        jsonResult.font = UIFont.systemFontOfSize(12)
-//        jsonResult.numberOfLines = 0   // makes number of lines dynamic
-//        // e.g.: multiple lines will show up
-//        jsonResult.textAlignment = NSTextAlignment.Center
-//        
-//        // Required to autolayout this label
-//        jsonResult.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        // Add the label to the superview
-//        view.addSubview(jsonResult)
+        
+        //        /*
+        //         * Further define label that will show JSON data
+        //         */
+        //
+        //        // Set the label text and appearance
+        //        jsonResult.text = "..."
+        //        jsonResult.font = UIFont.systemFontOfSize(12)
+        //        jsonResult.numberOfLines = 0   // makes number of lines dynamic
+        //        // e.g.: multiple lines will show up
+        //        jsonResult.textAlignment = NSTextAlignment.Center
+        //
+        //        // Required to autolayout this label
+        //        jsonResult.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //        // Add the label to the superview
+        //        view.addSubview(jsonResult)
         
         
         
@@ -216,7 +221,7 @@ class ViewController : UIViewController {
         
         // Create a dictionary of views that will be used in the layout constraints defined below
         let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateLabel,
-            "getData": getData]
+                                                      "getData": getData]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
@@ -234,8 +239,3 @@ class ViewController : UIViewController {
     }
     
 }
-
-// Embed the view controller in the live view for the current playground page
-XCPlaygroundPage.currentPage.liveView = ViewController()
-// This playground page needs to continue executing until stopped, since network reqeusts are asynchronous
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
