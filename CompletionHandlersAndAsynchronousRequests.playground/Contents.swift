@@ -14,7 +14,7 @@ class ViewController : UIViewController {
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
         
-        var heatmoney : String = ""
+        var heatMoney : String = ""
         
         // De-serializing JSON can throw errors, so should be inside a do-catch structure
         do {
@@ -23,7 +23,7 @@ class ViewController : UIViewController {
             // http://app.toronto.ca/opendata/heat_alerts/heat_alerts_list.json
             //
             let heatAlerts = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! [AnyObject]
-
+            
             guard let dateProvided : String = dateGiven.text else {
                 print("No date given")
                 return
@@ -31,7 +31,7 @@ class ViewController : UIViewController {
             
             print("The date given is: \(dateProvided)")
             
-            heatmoney = "no heat alert"
+            heatMoney = "No Heat Alert"
             
             // Iterate over all the objects
             for heatAlert in heatAlerts {
@@ -51,12 +51,10 @@ class ViewController : UIViewController {
                     print("Date: \(date)")
                     print("\(text)")
                     
-                    heatLabel.text = "Updating"
                     if let dateProvided = dateGiven.text {
                         if dateProvided==date {
-                            heatmoney = text
+                            heatMoney = text
                         }
-                        print("Updating")
                     }
                 }
                 
@@ -70,7 +68,7 @@ class ViewController : UIViewController {
         
         dispatch_async(dispatch_get_main_queue()) {
             print("Updated")
-            self.heatLabel.text = heatmoney
+            self.heatLabel.text = heatMoney
         }
         
     }
@@ -173,29 +171,29 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(date)
-    
+        
         /*
          * Create and position the label
          */
-
         
-        // Set the label text and appearance 
-        heatLabel.text = "IM HERE"
-        heatLabel.font = UIFont.boldSystemFontOfSize(10)
+        
+        // Set the label text and appearance
+        heatLabel.text = "Heat Alert"
+        heatLabel.font = UIFont.boldSystemFontOfSize(15)
         // Required to autolayout this label
         heatLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the label to the superview
         view.addSubview(heatLabel)
         
-
+        
         /*
          * Create label for the amount field
          */
         
         // Set the label text and appearance
         dateGiven.borderStyle = UITextBorderStyle.RoundedRect
-        dateGiven.font = UIFont.systemFontOfSize(15)
+        dateGiven.font = UIFont.systemFontOfSize(12)
         dateGiven.placeholder = "YYYY-MM-DD"
         dateGiven.backgroundColor = UIColor.whiteColor()
         dateGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
@@ -205,7 +203,7 @@ class ViewController : UIViewController {
         
         // Add the amount albel into the superview
         view.addSubview(dateGiven)
-
+        
         
         /*
          * Add a button
@@ -236,7 +234,7 @@ class ViewController : UIViewController {
         
         // Create a dictionary of views that will be used in the layout constraints defined below
         let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven, "heat": heatLabel,
-            "getData": getData]
+                                                      "getData": getData]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
