@@ -5,7 +5,7 @@ import XCPlayground
 
 class ViewController : UIViewController {
     
-    let dateLabel = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+    let dateGiven = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
     
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
@@ -20,6 +20,13 @@ class ViewController : UIViewController {
             // http://app.toronto.ca/opendata/heat_alerts/heat_alerts_list.json
             //
             let heatAlerts = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! [AnyObject]
+
+            guard let dateProvided : String = dateGiven.text else {
+                print("No date given")
+                return
+            }
+            
+            print("The date given is: \(dateProvided)")
             
             // Iterate over all the objects
             for heatAlert in heatAlerts {
@@ -38,6 +45,15 @@ class ViewController : UIViewController {
                     print("==========")
                     print("Date: \(date)")
                     print("\(text)")
+                    
+                    
+//                    if let dateProvided = dateGiven.text {
+//                        if dateProvided.equals(date) {
+//                            mylable.text = text
+//                        } else {
+//                            mylable.text = "no heat laertt"
+//                        }
+//                    }
                 }
                 
             }
@@ -52,6 +68,7 @@ class ViewController : UIViewController {
     
     // Set up and begin an asynchronous request for JSON data
     func getMyJSON() {
+        
         
         // This is where we'd process the JSON retrieved
         let myCompletionHandler : (NSData?, NSURLResponse?, NSError?) -> Void = {
@@ -154,38 +171,18 @@ class ViewController : UIViewController {
          */
         
         // Set the label text and appearance
-        dateLabel.borderStyle = UITextBorderStyle.RoundedRect
-        dateLabel.font = UIFont.systemFontOfSize(15)
-        dateLabel.placeholder = "YYYY-MM-DD"
-        dateLabel.backgroundColor = UIColor.whiteColor()
-        dateLabel.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        dateGiven.borderStyle = UITextBorderStyle.RoundedRect
+        dateGiven.font = UIFont.systemFontOfSize(15)
+        dateGiven.placeholder = "YYYY-MM-DD"
+        dateGiven.backgroundColor = UIColor.whiteColor()
+        dateGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         
         // Required to autolayout this field
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateGiven.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the amount albel into the superview
-        view.addSubview(dateLabel)
+        view.addSubview(dateGiven)
 
-        
-//        /*
-//         * Further define label that will show JSON data
-//         */
-//        
-//        // Set the label text and appearance
-//        jsonResult.text = "..."
-//        jsonResult.font = UIFont.systemFontOfSize(12)
-//        jsonResult.numberOfLines = 0   // makes number of lines dynamic
-//        // e.g.: multiple lines will show up
-//        jsonResult.textAlignment = NSTextAlignment.Center
-//        
-//        // Required to autolayout this label
-//        jsonResult.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        // Add the label to the superview
-//        view.addSubview(jsonResult)
-        
-        
-        
         
         /*
          * Add a button
@@ -215,7 +212,7 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateLabel,
+        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven,
             "getData": getData]
         
         // Define the vertical constraints
