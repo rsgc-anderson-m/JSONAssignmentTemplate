@@ -6,12 +6,15 @@ import XCPlayground
 class ViewController : UIViewController {
     
     let dateGiven = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+    let heatLabel = UILabel()
     
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
     
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
+        
+        var heatmoney : String = ""
         
         // De-serializing JSON can throw errors, so should be inside a do-catch structure
         do {
@@ -27,6 +30,8 @@ class ViewController : UIViewController {
             }
             
             print("The date given is: \(dateProvided)")
+            
+            heatmoney = "no heat alert"
             
             // Iterate over all the objects
             for heatAlert in heatAlerts {
@@ -46,14 +51,13 @@ class ViewController : UIViewController {
                     print("Date: \(date)")
                     print("\(text)")
                     
-                    
-//                    if let dateProvided = dateGiven.text {
-//                        if dateProvided.equals(date) {
-//                            mylable.text = text
-//                        } else {
-//                            mylable.text = "no heat laertt"
-//                        }
-//                    }
+                    heatLabel.text = "Updating"
+                    if let dateProvided = dateGiven.text {
+                        if dateProvided==date {
+                            heatmoney = text
+                        }
+                        print("Updating")
+                    }
                 }
                 
             }
@@ -62,6 +66,11 @@ class ViewController : UIViewController {
             print ("Failed to load: \(error.localizedDescription)")
         } catch {
             print("something else bad happened")
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            print("Updated")
+            self.heatLabel.text = heatmoney
         }
         
     }
@@ -164,8 +173,22 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(date)
+    
+        /*
+         * Create and position the label
+         */
 
         
+        // Set the label text and appearance 
+        heatLabel.text = "IM HERE"
+        heatLabel.font = UIFont.boldSystemFontOfSize(10)
+        // Required to autolayout this label
+        heatLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(heatLabel)
+        
+
         /*
          * Create label for the amount field
          */
@@ -212,12 +235,12 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven,
+        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven, "heat": heatLabel,
             "getData": getData]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[title]-40-[date][inputField]-50-[getData]",
+            "V:|[title]-40-[date][inputField]-20-[heat]-50-[getData]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
