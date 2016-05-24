@@ -44,7 +44,6 @@ class ViewController : UIViewController {
                     print("Date: \(date)")
                     print("\(text)")
                 }
-                
             }
             
         } catch let error as NSError {
@@ -52,7 +51,6 @@ class ViewController : UIViewController {
         } catch {
             print("something else bad happened")
         }
-        
     }
     
     // Set up and begin an asynchronous request for JSON data
@@ -124,7 +122,7 @@ class ViewController : UIViewController {
         view.backgroundColor = UIColor.redColor()
         
         /*
-         * Create and position the label
+         * Create and position the title
          */
         let title = UILabel()
         
@@ -139,7 +137,7 @@ class ViewController : UIViewController {
         view.addSubview(title)
         
         /*
-         * Create and position the label
+         * Create and position the date label
          */
         let date = UILabel()
         
@@ -170,26 +168,6 @@ class ViewController : UIViewController {
         
         // Add the amount albel into the superview
         view.addSubview(dateLabel)
-        
-        
-        //        /*
-        //         * Further define label that will show JSON data
-        //         */
-        //
-        //        // Set the label text and appearance
-        //        jsonResult.text = "..."
-        //        jsonResult.font = UIFont.systemFontOfSize(12)
-        //        jsonResult.numberOfLines = 0   // makes number of lines dynamic
-        //        // e.g.: multiple lines will show up
-        //        jsonResult.textAlignment = NSTextAlignment.Center
-        //
-        //        // Required to autolayout this label
-        //        jsonResult.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //        // Add the label to the superview
-        //        view.addSubview(jsonResult)
-        
-        
         
         
         /*
