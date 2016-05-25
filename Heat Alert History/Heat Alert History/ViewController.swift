@@ -4,8 +4,24 @@ import UIKit
 
 class ViewController : UIViewController {
     
-    let dateGiven = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
-    let heatLabel = UILabel()
+    //    let dateGiven = UITextField(frame: CGRect(x: 0, y: 0,width: 300, height: 30))
+    
+    @IBOutlet weak var dateGiven: UITextField!
+    //    let heatLabel = UILabel()
+    
+    //     let getData = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+    
+//    let date = UILabel()
+    
+//    let heatAlertHistoryTitle = UILabel()
+
+    @IBOutlet weak var heatAlertHistoryTitle: UILabel!
+    
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var getData: UIButton!
+    @IBOutlet weak var heatLabel: UILabel!
+    
+    
     
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
@@ -143,22 +159,21 @@ class ViewController : UIViewController {
         /*
          * Create and position the label
          */
-        let title = UILabel()
         
-        // Set the label text and appearance
-        title.text = "Heat Alert History"
-        title.font = UIFont.boldSystemFontOfSize(36)
+         // Set the label text and appearance
+        heatAlertHistoryTitle.text = "Heat Alert History"
+        heatAlertHistoryTitle.font = UIFont.boldSystemFontOfSize(36)
         
         // Required to autolayout this label
-        title.translatesAutoresizingMaskIntoConstraints = false
+        heatAlertHistoryTitle.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the label to the superview
-        view.addSubview(title)
+        view.addSubview(heatAlertHistoryTitle)
         
         /*
          * Create and position the label
          */
-        let date = UILabel()
+        
         
         // Set the label text and appearance
         date.text = "Date"
@@ -206,7 +221,6 @@ class ViewController : UIViewController {
         /*
          * Add a button
          */
-        let getData = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
         
         // Make the button, when touched, run the calculate method
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
@@ -231,7 +245,7 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = ["title": title, "date": date, "inputField": dateGiven, "heat": heatLabel,
+        let viewsDictionary : [String : AnyObject] = ["title": heatAlertHistoryTitle, "date": date, "inputField": dateGiven, "heat": heatLabel,
                                                       "getData": getData]
         
         // Define the vertical constraints
